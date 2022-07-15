@@ -1,0 +1,205 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Auto Stock</title>
+	
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.dropdown:hover .dropdown-content {display: block;}
+		.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+		  }
+		.dropdown-content a {
+			color: black;
+			margin-left: 1px;
+			padding: 10px;
+			text-decoration: none;
+			display: block;
+		  }
+		  .dropdown-content a:hover{
+			 background-color: #e6e6e6;
+		  }
+		  .tm-nav-link{
+			  font-size: 20px;
+		  }
+
+
+		  input[type=text] {
+			padding: 15px;
+			padding-right: 100px;
+			margin-top: 8px;
+			font-size: 17px;
+			border: none;
+			border:#2F956D;
+			}
+
+			.search{
+				margin-left: 50%;	
+			}
+		  .search-container button {
+			float:inline-end;
+			padding: 6px 10px;
+			margin-top: 8px;
+			margin-right: 16px;
+			background:transparent;
+			font-size: 17px;
+			border: none;
+		  }
+			
+		  .search-container button:hover {
+			cursor: pointer;
+		  }
+		  .tm-header-inner {
+			position: sticky;
+
+			background-color:#e6e6e6;
+			color: black;
+			margin-top: 10px;
+
+			padding: 100px;
+		  }
+		  .tm-nav-link{
+			color: black;
+
+		  }
+	</style>
+</head>
+<!--
+
+Simple House
+
+https://templatemo.com/tm-539-simple-house
+
+-->
+<body> 
+	<!-- <div class="tm-header"> -->
+		<div class="row tm-header-inner" style="padding: inherit;position:relative">
+
+			<div class="col-md-6 col-12">
+				
+				<div class="tm-site-text-box">
+					<h1 class="tm-site-title"><a href="/" style="color: white;">Auto Stock</a></h1>
+					<h6 class="tm-site-description" ><h4 style="font-size: 10px;color:white;">Choose a smooth ride for a smooth life</h4></h6>	
+				</div>
+
+			</div>
+
+			<nav class="search">
+				<div class="search-container">
+					<form action="search" method="GET">
+					  <input type="text" placeholder="Search Cars or Brands" name="search">
+					  <button type="submit"><i class="fa fa-search"></i></button>
+					</form>
+				  </div>
+			</nav>
+			
+			<nav class="col-md-6 col-12 tm-nav">
+				<ul class="tm-nav-ul">
+					
+					<div class="dropdown">
+						<li class="tm-nav-li dropdown"><a href="Buy" class="tm-nav-link">Buy</a></li>
+						<div class="dropdown-content">
+						  <a href="Buy/New">New Car</a>
+						  <a href="Buy/Used">Used Car</a>
+						</div>
+					</div>
+
+					<li class="tm-nav-li"><a href="Sell/" class="tm-nav-link">Sell</a></li>
+
+					<li class="tm-nav-li"><a href="account/signup" class="tm-nav-link">Register</a></li>
+
+					<li class="tm-nav-li"><a href="account/login" class="tm-nav-link">Login</a></li>
+
+					<div class="dropdown">
+						<li class="tm-nav-li dropdown"><a href="Buy" class="tm-nav-link">More</a></li>
+						<div class="dropdown-content">
+							<li class="tm-nav-li"><a href="about">About</a></li>
+							<li class="tm-nav-li"><a href="contact">Contact</a></li>
+						</div>
+					</div>
+
+				</ul>
+			</nav>	
+		</div>
+	<!-- </div> -->
+
+	<div class="container">
+	<!-- Top box -->
+		<!-- Logo & Site Name -->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="static\img\food1.jpg">
+				
+                <img class="parallax-slider" src="{% static 'images\amaze.jpeg' %}">
+				<img class="parallax-slider" src="{% static 'images\baleno.jpg' %}">								
+				<img class="parallax-slider" src="{% static 'images\nexon.jpeg' %}">
+				<img class="parallax-slider" src="{% static 'images\verna.jpeg' %}">								
+
+
+			</div>
+		</div>
+
+
+		
+	{% block content %}
+
+    {% endblock %}
+		
+
+		<footer class="tm-footer text-center">
+			<p>Copyright &copy; Auto Stock
+            
+
+		</footer>
+	</div>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).text().toLowerCase();
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+
+		var myIndex = 0;
+		carousel();
+		
+		function carousel() {
+		  var i;
+		  var x = document.getElementsByClassName("parallax-slider");
+		  for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";  
+		  }
+		  myIndex++;
+		  if (myIndex > x.length) {myIndex = 1}    
+		  x[myIndex-1].style.display = "block";  
+		  setTimeout(carousel, 5000); // Change image every 2 seconds
+		}
+
+		
+
+
+
+	</script>
+
+
+</body>
+</html>

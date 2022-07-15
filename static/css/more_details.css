@@ -1,0 +1,59 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d8d8d8;
+}
+
+.details-container {
+    width: min(1200px, 100%);
+    background-color: white;
+    margin: 8rem auto;
+    color: black;
+    font-size: 52px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+.details-container p {
+    margin: 2.5rem 0;
+}
+
+.details-header {
+    font-size: 72px;
+    color: #2f80ed;
+}
+.details-image {
+    width: 500px; 
+    height: 400px;
+}
+
+/* Cta styling */
+.details-container button {
+    border: none;
+    background: #2f80ed;
+    width: 360px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.details-container button:hover {
+    background: linear-gradient(180deg, #2F80ED 0%, #0057CD 100%);
+}
+.details-container button p {
+    margin: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .details-container {
+        margin: 5rem auto;
+        font-size: 36px;
+    }
+
+    .details-header {
+        font-size: 48px;
+    }
+    .details-image {
+        width: 360px; 
+        height: 300px;
+    }
+}

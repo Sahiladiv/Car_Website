@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- For the favicon -->
+	<link rel="icon" type="image/png" href="{% static 'images/icons/favicon.ico' %}"/>
+	<!-- <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css"> -->
+	<!-- For the alert if value isn't entered -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<!-- For the "A" -->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/iconic/css/material-design-iconic-font.min.css' %}">
+	<!-- For the styles -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" method = 'POST'>
+					{% csrf_token %}
+
+					{% if request.GET.next %}
+						<input type="hidden" name = "next" value="{{request.GET.next}}">
+					{% endif %}
+					<span class="login100-form-title p-b-26">
+						Login
+					</span>
+
+				
+					<!-- Email -->
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						
+					</div>
+
+					<!-- Password -->
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							
+						</span>
+						<input class="input100" type="password" name="pass" placeholder="Password" id="password">
+					
+					</div>
+
+					<!-- Login button -->
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button class="login100-form-btn">
+								Login
+							</button>
+						</div>
+					</div>
+
+					<div class="text-center p-t-55">
+						<span class="txt1">
+							Don’t have an account?
+						</span>
+
+						<a class="txt2" href="signup">
+							Sign Up
+						</a>
+					</div>
+
+					<input type="hidden" value="{{carid}}" name="carurl">
+				</form>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+	
+	<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+	<!-- <script src="{% static 'js/main.js' %}"></script> -->
+
+	<script>
+		function showPassword(){
+			var x = document.getElementById("password");
+			if (x.type === "password") {
+			  x.type = "text";
+			} else {
+			  x.type = "password";
+			}
+		  }
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css\car_details.css' %}">
+
+
+</head>
+<body>
+
+        <main class="container">
+         
+          <!-- Left Column / Car Image -->
+          <div class="left-column">
+            {% for i in t %}
+            <i><img  style="width:700px;height:500px;object-fit:scale-down" src="{{i.image_url}}" alt="#" /></i>
+          </div>
+         
+         
+          <!-- Right Column -->
+          <div class="right-column">
+         
+            <!-- Product Description -->
+            <div class="product-description">
+              
+              <h1>{{i.car_model}}</h1>
+                <p>{{i.car_brand}}</p>
+                <p>{{i.car_type}}</p>
+                <p>{{i.car_condition}}</p>
+                <p>{{i.Fuel_Tank_Capacity}}</p>
+                <p>{{i.car_location}}</p>
+                <p>{{i.Other_Key_Features}}</p>
+                <p>{{i.car_price}}</p>
+            </div>
+         
+
+         
+            <!-- Product Pricing -->
+            <div class="product-price">
+
+                {% if request.session.uid == none %}
+                <a href="login" style="padding: 0.75rem;" class="cart-btn">Buy!</a>&nbsp;
+        
+                {% else %}
+                <a href="{{i.ID}}/{{request.session.uid}}" class="cart-btn" style="padding: 0.75rem;">BUY</a>
+                {% endif %}
+                <a href="/" style="padding: 0.75rem;" class="cart-btn">Contact Owner</a>
+              
+             
+            </div>
+          </div>
+          {% endfor %}
+        </main>
+
+
+</body>
+</html>

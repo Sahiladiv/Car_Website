@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<head></head>
+
+      <div id="cars" class="why">
+         <div class="container">
+            <div class="row">
+               <!-- <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2>Choose Your Ride</h2>
+                     <p>making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still </p>
+                  </div>
+               </div> -->
+            </div>
+            <div class="row">
+
+               {% for i in t %}
+               <!-- <h1>{{i}}</h1> -->
+   
+               <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                  <div class="Services-box">
+                     <i ><img style="width: auto;height:inherit;" src="{{i.Image}}" alt="#" /></i>
+
+                     <p>Name: {{i.Name}}</p>
+                     <p>Brand: {{i.Brand}}</p>
+                     <p>Price: {{i.Price}}</p>
+                     <a href="buy/{{i.ID}}"><button name="{{i.ID}}" id="buy">Buy Car</button></a>
+                     
+
+                  </div>
+               </div>
+         
+                  {% endfor %}
+
+               
+
+       
+            </div>
+         </div>
+
+         
+      </div>
+
+
+
+      {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
